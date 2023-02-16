@@ -18,7 +18,7 @@
             </nav>
         </div>
         <div class="header__right-block">
-            <button class="btn btn_white">Contact us</button>
+            <button data-modal class="btn btn_white">Contact us</button>
         </div>
     </header>
     <div class="sidepanel">
@@ -86,7 +86,7 @@
                 </div>
             </div>
             <div class="offer__action">
-                <button class="btn btn_dark">Contact us</button>
+                <button data-modal class="btn btn_dark">Contact us</button>
             </div>
         </div>
         <div class="container">
@@ -239,8 +239,8 @@
             <div class="promotion__text">
                 <div class="title">Promotion for new customers!</div>
                 <div class="promotion__descr">
-                    Мы ценим каждого клиента и предлагаем вам стать одним из них на очень выгодных условиях. 
-                    Каждому, кто закажет доставку питание на неделю, будет предоставлена скидка в размере <span>20%!</span>
+                    We value every client and offer you to become one of them on very favorable terms.
+                     Anyone who orders food delivery for a week will receive a discount of <span>20%!</span>
                     <br><br>
                     The promotion will end on May 20 at 00:00
                 </div>
@@ -249,19 +249,19 @@
                 <div class="title">Remaining until the end of the promotion:</div>
                 <div class="timer">
                     <div class="timer__block">
-                        <span id="days">12</span>
+                        <span id="days">--</span>
                         days
                     </div>
                     <div class="timer__block">
-                        <span id="hours">20</span>
+                        <span id="hours">--</span>
                         hours
                     </div>
                     <div class="timer__block">
-                        <span id="minutes">56</span>
+                        <span id="minutes">--</span>
                         minutes
                     </div>
                     <div class="timer__block">
-                        <span id="seconds">20</span>
+                        <span id="seconds">--</span>
                         seconds
                     </div>
                 </div>
@@ -291,7 +291,7 @@
         <div class="modal__dialog">
             <div class="modal__content">
                 <form action="#">
-                    <div class="modal__close">&times;</div>
+                    <div data-close class="modal__close">&times;</div>
                     <div class="modal__title">We will contact you as soon as possible!</div>
                     <input required placeholder="Your name" name="name" type="text" class="modal__input">
                     <input required placeholder="Your phone number" name="phone" type="phone" class="modal__input">

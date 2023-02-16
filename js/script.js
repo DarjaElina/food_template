@@ -43,13 +43,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Timer
 
-    const deadline = '2020-03-11'; // задаем дедлайн
+    const deadline = '2023-03-11'; // задаем дедлайн
 
     function getTimeRemaining(endtime) {
         // в качестве аргумента будет дедлайн
         let days, hours, minutes, seconds;
         const t = Date.parse(endtime) - Date.parse(new Date()); // => техническая переменная; получаем разницу между дедлайном и текущим временем в миллисекундах
-
         // проверяем на отрицательное число
         if (t <= 0) {
             days = 0;
@@ -100,7 +99,7 @@ window.addEventListener('DOMContentLoaded', () => {
               seconds = timer.querySelector('#seconds'),
               timeInterval = setInterval(updateClock, 1000); // => а здесь запускаем нашу функцию каждую секунду, тк время обновляется каждую секунду
 
-              updateClock(); // это чтобы не ждать 1000 миллисекунд чтобы не было мигания
+              //updateClock(); // это чтобы не ждать 1000 миллисекунд чтобы не было мигания
 
         // теперь третья функция, которая будет обновлять наш таймер каждую секунду
 
@@ -126,5 +125,77 @@ window.addEventListener('DOMContentLoaded', () => {
     setClock('.timer', deadline);
 
     // теперь исправляем мигание и добавляем нолики к однозначному числу (09 часов etc)
+
+
+    // Modal
+    // мой код
+    // const modal = document.querySelector(".modal"),
+    //       modalOpenBtns = document.querySelectorAll("[data-modal]"),
+    //       modalCloseBtn = document.querySelector('[data-close]');
+          
+    //       //console.log(modalOpenBtns);
+
+    // function openModal() {
+    //     modalOpenBtns.forEach((el) => {
+    //         el.addEventListener("click", () => {
+    //             modal.classList.add("show");
+    //             modal.classList.remove("hide");
+    //             //modal.style.display = "block";
+    //         });
+    //     });
+    // }
+    // openModal();
+
+    // function closeModal() {
+    //     modalCloseBtn.addEventListener("click", () => {
+    //         modal.classList.add("hide");
+    //         modal.classList.remove("show");
+    //         //modal.style.display = "none";
+    //     });
+    // }
+    // closeModal();
+
+    // код Петриченко
+    const modalTrigger = document.querySelectorAll('[data-modal]'),
+          modal = document.querySelector(".modal"),
+          modalCloseBtn = document.querySelector("[data-close]");
+
+
+    modalTrigger.forEach(btn => {
+       btn.addEventListener("click", () => {
+            modal.classList.add("show");
+            modal.classList.remove("hide");
+            // modal.classList.toggle('show');
+            // делаем так чтобы при открытии модального окна нельзя было прокрутить страницу
+            // за прокрутку отвечает css свойство overflow
+            document.body.style.overflow = "hidden";
+        });
+    });
+
+
+    function closeModal() {
+        modal.classList.add("hide");
+        modal.classList.remove("show");
+        document.body.style.overflow = "";
+    }
+
+    modalCloseBtn.addEventListener("click", closeModal); // => а здесь просто передаем в качестве второго аргумента
+
+    // как сделать чтобы можно было закрыть окно при клике на подложку
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal(); // => здесь уже вызываем функцию
+        }
+    });
+
+    // закрываем при нажатии escape
+    document.addEventListener('keydown', (e) => {
+        if (e.code === "Escape" && modal.classList.contains("show")) {
+            closeModal();
+        }
+    });
+
+
 });
 
