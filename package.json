@@ -1,0 +1,24 @@
+{
+  "name": "food_dist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "json": "json-server db.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DarjaElina/food_template.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DarjaElina/food_template/issues"
+  },
+  "homepage": "https://github.com/DarjaElina/food_template#readme",
+  "devDependencies": {
+    "json-server": "^0.17.2",
+    "webpack-cli": "^5.0.1"
+  }
+}
